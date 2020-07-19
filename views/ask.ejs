@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>AskMe</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/style.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Roboto&display=swap" rel="stylesheet">
-</head>
+    <%-include ('./partials/head.ejs')%> 
 <body>
-
-    <header class="header"> 
-        <h1>Ask<span>Me</span></h1>
-    </header>
+    <%-include ('./partials/header.ejs')%> 
     <div class="container">
-        <form class="formContainer"> 
+        <form class="formContainer" method="POST" action="/saveQuestion"> 
             <h2>Digite sua pergunta:</h2>
             <label>titulo:</label>
-            <input placeholder=" Digite seu titulo:">
+            <input placeholder=" Digite seu titulo:" name="title">
             <label>Descrição:</label>
-            <textarea name="" id="" cols="15" rows="3" placeholder=" Digite seu problema:"></textarea>
+            <textarea name="description" id="" cols="15" rows="3" placeholder=" Digite seu problema:"></textarea>
             <button class="btn-form">Enviar</button>
         </form>
     </div>

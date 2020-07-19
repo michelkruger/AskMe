@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>AskMe</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../public/css/style.css'>
-</head>
+    <%-include ('./partials/head.ejs')%> 
 <body>
+    <%-include ('./partials/header.ejs')%> 
 
-    <h2>Bem-vindo!</h2>
-    <script src='main.js'></script>
+    <div class="container">
+        <div class="formContainer">
+            <h2>Perguntas</h2>
+            <button class="btn-form">Perguntar</button>
+            <% questions.forEach(question => { %>
+            <div class="question">
+                <p><%=question.title%> </p>
+            </div>
+            <div>
+                <button class="btn-form">Responder</button>
+            </div>
+            <% }) %>
+        </div>
+        
+    </div>
+
+    <script src='../index.js'></script>
 </body>
 </html>

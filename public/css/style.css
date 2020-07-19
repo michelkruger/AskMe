@@ -35,7 +35,7 @@
         margin-top: 5vh;
     }
 
-    .formContainer h2,label, input, textarea {
+    .formContainer h2,label, input, textarea,p {
         width: 90%;
         display: block;
         padding: 0;
@@ -67,4 +67,8 @@
         border-radius: 6px;
         border: none;
         margin: 10px 0px 10px 5%;
+    }
+
+    .question {
+        padding-top: 10px;
     }
