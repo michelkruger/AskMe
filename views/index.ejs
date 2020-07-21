@@ -7,13 +7,13 @@
     <div class="container">
         <div class="formContainer">
             <h2>Perguntas</h2>
-            <button class="btn-form">Perguntar</button>
-            <% questions.forEach(question => { %>
-            <div class="question">
+            <button class="btnForm">Perguntar</button>
+                <% questions.forEach(question => { %>
+            <div class="question" >
                 <p><%=question.title%> </p>
             </div>
             <div>
-                <button class="btn-form">Responder</button>
+                <a href="/question/<%= question.id %>"><button class="btnForm">Responder</button></a>
             </div>
             <% }) %>
         </div>
