@@ -5,16 +5,18 @@
     <%-include ('./partials/header.ejs')%> 
 
     <div class="container">
-        <div class="formContainer">
+        <div class="containerQuestion">
             <h1><%=question.title%></h1>
             <p><%=question.description%></p>
         </div>
     </div>
-    <form class="formContainer"> 
-        <textarea name="body" id="" cols="30" rows="10"></textarea>
+    
+    <form class="containerQuestion questionForm"> 
+        <label>Resposta: </label>
+        <textarea name="body" cols="30" rows="10" placeholder=" Escreva sua resposta: "></textarea>
         <button class="btnForm">Responder</button>
     </form>
-
+    
     <script src='../index.js'></script>
 </body>
 </html>
