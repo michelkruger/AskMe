@@ -11,12 +11,22 @@
         </div>
     </div>
     
-    <form class="containerQuestion questionForm"> 
+    <form class="containerQuestion questionForm" method="POST" action="/saveanswer"> 
         <label>Resposta: </label>
         <textarea name="body" cols="30" rows="10" placeholder=" Escreva sua resposta: "></textarea>
+        <input type="hidden" value="<%=question.id%>" name="questionId"> 
         <button class="btnForm">Responder</button>
     </form>
     
+    <div class="containerQuestion">
+        <h3>Respostas:</h3>
+        <% answers.forEach(answer => { %>
+
+            <p><%= answer.body %></p>
+
+        <% }) %>
+        
+    </div>
     <script src='../index.js'></script>
 </body>
 </html>

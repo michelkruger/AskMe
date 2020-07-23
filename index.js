@@ -5,6 +5,7 @@ const connection = require('./database/database');
 const question = require("./database/Question");
 const answer = require("./database/Answer");
 const { render } = require("ejs");
+const { response } = require("express");
 
 connection.authenticate().then(()=>{
     console.log('conexão estabelecida.');
@@ -42,18 +43,38 @@ app.post("/saveQuestion", (req,res)=>{
 });
 
 app.get('/question/:id', (req,res) =>{
-    var id = req.params.id;
+    const id = req.params.id;
     question.findOne({
         where: {id:id}
     }).then(question =>{
         if(question != undefined) {
-            res.render("question", {
-                question:question
-            })
+
+            answer.findAll({
+                where: {questionId:id },
+                order: [
+                    ['id',"DESC"]
+                ]
+            }).then(answers => {
+                res.render("question", {
+                    question:question,
+                    answers: answers
+                })
+            });
         }else{
             res.redirect("/")
         }
     })
 });
+
+app.post('/saveanswer', (req,res) => {
+    const body = req.body.body; 
+    const questionId = req.body.questionId;
+    answer.create({
+        body: body,
+        questionId: questionId
+    }).then(()=> {
+        res.redirect("/question/"+questionId)
+    });
+})
 
 app.listen(8080, () => { console.log("app rodando.")});
